@@ -1,0 +1,21 @@
+.main {
+  background-color: black;
+  /* margin: 0;
+    padding: 0; */
+}
+.loading,
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+.loading p,
+.error p {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 30px;
+}

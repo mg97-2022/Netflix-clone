@@ -1,0 +1,56 @@
+.signup {
+  display: flex;
+  align-items: center;
+  color: #8c8c8c;
+  margin-bottom: 20px;
+}
+.signup a {
+  margin-left: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+.text {
+  color: #8c8c8c;
+  font-size: 0.8rem;
+}
+.text p:first-child {
+  margin-bottom: 10px;
+}
+.text p:first-child button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #0071eb;
+  margin-left: 5px;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 20px;
+}
+.text p:first-child button::before {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #0071eb;
+  display: none;
+}
+.text p:first-child button:hover::before {
+  display: block;
+}
+.text p:last-child {
+  opacity: 0;
+}
+.text p:last-child.show_more {
+  opacity: 1;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.text p:last-child a {
+  color: #0071eb;
+}

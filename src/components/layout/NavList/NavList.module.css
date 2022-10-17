@@ -1,0 +1,90 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 70px;
+  right: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px 30px 10px 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+}
+.show_nav {
+  opacity: 1;
+}
+.list::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  border: 15px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.6) transparent;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+.list li {
+  /* margin-bottom: 10px; */
+  z-index: 1000;
+}
+.list a {
+  display: block;
+  background-color: transparent;
+  padding: 5px 0;
+  color: white;
+  font-size: 1.125rem;
+  text-transform: capitalize;
+  word-spacing: -1px;
+  position: relative;
+  z-index: 1000;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  cursor: default;
+  pointer-events: none;
+}
+.show_nav a {
+ cursor: pointer;
+ pointer-events: all;
+}
+.list a.active {
+  color: var(--red-color);
+  font-weight: bold;
+}
+@media (min-width: 768px) {
+  .list {
+    opacity: 1 !important;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+  }
+  .list a {
+    cursor: pointer !important;
+    pointer-events: inherit !important;
+  }
+  .list::before {
+    display: none;
+  }
+  .list li {
+    padding: 0 10px;
+  }
+}

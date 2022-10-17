@@ -1,0 +1,52 @@
+.section {
+  height: 80vh;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+}
+.content {
+  width: 100%;
+  padding-top: 80px;
+  text-align: start;
+}
+.content img {
+  width: 300px;
+  margin-left: calc((100% - 300px) / 2);
+  margin-bottom: 20px;
+}
+.content h2 {
+  font-size: 2rem;
+  margin: 15px 0;
+  line-height: 1.2;
+}
+.content span {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.text p {
+  font-size: 1.25rem;
+}
+.link {
+  display: block;
+  margin: 30px auto;
+  width: 320px;
+  padding: 15px 0;
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  background-color: var(--red-color);
+  color: white;
+  text-align: center;
+  border-radius: 7px;
+}
+@media (min-width: 501px) {
+  .content {
+    text-align: center;
+  }
+  .content img {
+    margin-left: 0;
+  }
+}
+

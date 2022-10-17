@@ -1,0 +1,9 @@
+.list {
+    max-width: 700px;
+    margin: 30px auto;
+}
+@media (min-width: 992px) {
+    .list {
+        max-width: 900px;
+    }
+}

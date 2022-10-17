@@ -1,0 +1,85 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 2000;
+  height: 100%;
+}
+.box {
+  position: fixed;
+  top: 25vh;
+  left: calc(50% - 225px);
+  width: 450px;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 3000;
+  /* animation: slide-down 300ms ease-out forwards;
+  -webkit-animation: slide-down 300ms ease-out forwards; */
+}
+.modal_open {
+  animation: openModal 300ms ease-out forwards;
+  -webkit-animation: openModal 300ms ease-out forwards;
+}
+.modal_close {
+  animation: closeModal 300ms ease-out forwards;
+  -webkit-animation: closeModal 300ms ease-out forwards;
+}
+
+@keyframes openModal {
+  0% {
+      opacity: 0;
+      transform: translateY(-100%);
+      -webkit-transform: translateY(-100%);
+      -moz-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      -o-transform: translateY(-100%);
+}
+  50% {
+      opacity: 1;
+      transform: translateY(90%);
+      -webkit-transform: translateY(90%);
+      -moz-transform: translateY(90%);
+      -ms-transform: translateY(90%);
+      -o-transform: translateY(90%);
+}
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+}
+}
+
+@keyframes closeModal {
+  0% {
+      opacity: 1;
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+}
+  50% {
+      opacity: 0.8;
+      transform: translateY(60%);
+      -webkit-transform: translateY(60%);
+      -moz-transform: translateY(60%);
+      -ms-transform: translateY(60%);
+      -o-transform: translateY(60%);
+}
+  100% {
+      opacity: 0;
+      transform: translateY(-100%);
+      -webkit-transform: translateY(-100%);
+      -moz-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      -o-transform: translateY(-100%);
+}
+}

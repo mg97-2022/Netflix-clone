@@ -1,0 +1,51 @@
+.footer {
+  position: relative;
+  width: 100%;
+  max-height: 220px;
+  background-color: rgb(0, 0, 0, 0.75);
+  padding: 30px 0 50px;
+  z-index: 100;
+}
+.content {
+  margin-left: 20px;
+}
+.content > a {
+  display: block;
+  color: #737373;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list li {
+  width: 50%;
+  margin-bottom: 10px;
+}
+.list li a {
+  color: #737373;
+  font-size: 0.8rem;
+}
+.list li:not(:first-child) a {
+  text-transform: capitalize;
+}
+@media (min-width: 501px) {
+  .list li {
+    width: 30%;
+  }
+}
+@media (min-width: 768px) {
+  .content {
+    margin-left: 50px;
+  }
+}
+@media (min-width: 992px) {
+  .content {
+    text-align: start;
+    max-width: 1000px;
+  }
+  .list li {
+    width: 25%;
+  }
+}

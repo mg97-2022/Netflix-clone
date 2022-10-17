@@ -1,0 +1,153 @@
+.form {
+  position: relative;
+  width: 95%;
+  margin: 0 auto;
+  padding: 100px 20px 0;
+  z-index: 100;
+}
+.form h2 {
+  text-transform: capitalize;
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 20px;
+}
+.inputs {
+  width: 100%;
+}
+.input {
+  margin-bottom: 20px;
+}
+.input input {
+  display: block;
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: #333;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 3px;
+}
+.input input:focus {
+  background-color: #454545;
+}
+.input input:focus::placeholder {
+  transform: translateY(-15px);
+}
+.input input.error {
+  border-bottom: 2px solid #e87c03;
+}
+.input p {
+  font-size: 0.8rem;
+  color: #e87c03;
+}
+
+.inputs button {
+  margin-top: 30px;
+  margin-bottom: 80px;
+}
+
+/* .remember {
+    color: #8c8c8c;
+    margin-bottom: 60px;
+
+}
+.remember input {
+    margin-right: 3px;
+    width: 25px;
+}
+.remember input:checked {
+    background-color: red;
+    color: yellow;
+} */
+.signup {
+  display: flex;
+  align-items: center;
+  color: #8c8c8c;
+  margin-bottom: 20px;
+}
+.signup a {
+  margin-left: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+.text {
+  color: #8c8c8c;
+  font-size: 0.8rem;
+}
+.text p:first-child {
+  margin-bottom: 10px;
+}
+.text p:first-child button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #0071eb;
+  margin-left: 5px;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 20px;
+}
+.text p:first-child button::before {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #0071eb;
+  display: none;
+}
+.text p:first-child button:hover::before {
+  display: block;
+}
+.text p:last-child {
+  opacity: 0;
+}
+.text p:last-child.show_more {
+  opacity: 1;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.text p:last-child a {
+  color: #0071eb;
+}
+@media (min-width: 768px) {
+  .form {
+    width: 450px;
+    height: 650px;
+    padding: 40px 40px;
+    border-radius: 3px;
+    margin: 100px auto 50px;
+  }
+  .inputs button {
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+}
+
+.invalid_inputs {
+  background-color: #e87c03;
+  color: white;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.invalid_inputs a {
+  font-size: 0.9rem;
+  color: inherit;
+  position: relative;
+  text-transform: lowercase;
+  border-bottom: 1px solid white;
+}

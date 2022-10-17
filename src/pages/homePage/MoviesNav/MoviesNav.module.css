@@ -1,0 +1,32 @@
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.right {
+  display: flex;
+  align-items: center;
+}
+.bars {
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 10px;
+  display: block;
+  cursor: pointer;
+}
+.avatar {
+  width: 40px;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .avatar {
+    width: 50px;
+  }
+  .nav {
+    justify-content: space-between;
+  }
+  .bars {
+    display: none;
+  }
+}

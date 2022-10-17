@@ -1,0 +1,17 @@
+.content {
+  text-transform: capitalize;
+  text-align: center;
+}
+.content h2 {
+  font-size: 2rem;
+  color: var(--red-color);
+  margin-bottom: 5px;
+}
+.content p {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.close_btn {
+  font-size: 1rem;
+  margin-top: 20px;
+}
