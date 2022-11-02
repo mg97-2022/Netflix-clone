@@ -28,21 +28,15 @@ function BottomText() {
           <p className={showMore ? classes.show_more : ""}>
             The information collected by Google reCAPTCHA is subject to the
             Google{" "}
-            <a
-              href="https://policies.google.com/privacy"
-              rel="noreferrer"
-              target="_blank"
+            <span
             >
               Privacy Policy
-            </a>{" "}
+            </span>{" "}
             and{" "}
-            <a
-              href="https://policies.google.com/terms"
-              rel="noreferrer"
-              target="_blank"
+            <span
             >
               Terms of Service
-            </a>{" "}
+            </span>{" "}
             , and is used for providing, maintaining, and improving the
             reCAPTCHA service and for general security purposes (it is not used
             for personalized advertising by Google).

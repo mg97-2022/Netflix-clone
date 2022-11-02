@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
-import useHttp from "../hooks/use-http";
 
 const myListSlice = createSlice({
   name: "myList",

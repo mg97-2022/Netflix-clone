@@ -1,15 +1,7 @@
 import React, { useEffect, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, Route, Routes } from "react-router-dom";
-import LoadingSpinner from "./components/ui/Modal/LoadingSpinner/LoadingSpinner";
-// import HomePage from "./pages/homePage/HomePage";
-// import MoviesPage from "./pages/moviesPage/MoviesPage";
-// import LoginPage from "./pages/loginPage/LoginPage";
-// import FirstStepOne from "./pages/getStarted/FirstStepOne/FirstStepOne";
-// import FirstStepTwo from "./pages/getStarted/FirstStepTwo/FirstStepTwo";
-// import ErrorPage from "./pages/errorPage/ErrorPage";
-// import MovieDetail from "./pages/MovieDetail/MovieDetail";
-// import MyList from "./pages/myList/MyList";
+import { Route, Routes } from "react-router-dom";
+import LoadingPage from "./pages/LoadingPage/LoadingPage";
 import useHttp from "./hooks/use-http";
 import { myListActions } from "./store/myList";
 
@@ -43,9 +35,8 @@ function App() {
       return;
     }
     if (listChanged) {
-      const modifiedUserToken = userIdToken;
       sendRequest({
-        url: `https://netflix-mg97-default-rtdb.firebaseio.com/${modifiedUserToken}.json`,
+        url: `https://netflix-mg97-default-rtdb.firebaseio.com/${userIdToken}.json`,
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -57,20 +48,12 @@ function App() {
   }, [myList, userIdToken, sendRequest, listChanged, dispatch]);
 
   return (
-    <Suspense
-      fallback={
-        <div className="loading_page">
-          <h2>loading...</h2>
-          <LoadingSpinner color="red" width="100px" height="100px" />
-        </div>
-      }
-    >
+    <Suspense fallback={<LoadingPage />}>
       <Routes>
         <Route path="/">
           <Route index element={<HomePage />} />
           <Route path="login" element={<LoginPage />} />
         </Route>
-
         {loggedIn && (
           <Route path="/shows">
             <Route index element={<MoviesPage />} />

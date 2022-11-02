@@ -1,10 +1,9 @@
 .header {
   height: 50px;
-  /* position: absolute; */
+  width: 100%;
   top: 0;
   left: 0;
-  z-index: 100;
-  width: 100%;
+  z-index: 1000;
 }
 .nav {
   position: relative;
@@ -18,28 +17,26 @@
 .nav_container {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav a {
+  display: block;
+}
+.logo img {
+  width: 100px;
 }
 @media (min-width: 501px) {
   .header {
     height: 60px;
   }
+  .logo img {
+    width: 150px;
+  }
 }
 @media (max-width: 767px) {
   .nav {
     margin: 0 20px;
-  }
-}
-.nav a {
-  display: block;
-}
-
-.logo img {
-  width: 100px;
-}
-@media (min-width: 501px) {
-  .logo img {
-    width: 150px;
   }
 }
 @media (min-width: 992px) {

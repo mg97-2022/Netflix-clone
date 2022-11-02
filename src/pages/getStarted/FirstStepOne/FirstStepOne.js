@@ -8,7 +8,7 @@ function FirstStepOne() {
     <Fragment>
       <GetStartedNav />
       <Content />
-      <GeneralFooter backgroundColor='#f3f3f3' />
+      <GeneralFooter borderTop='1px solid #e6e6e6' backgroundColor='#f3f3f3' />
     </Fragment>
   )
 }

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
 import image from "../../assets/logo (1).png";
 import LoginForm from "./LoginForm/LoginForm";
-import LoginFooter from "./LoginFooter/LoginFooter";
 import classes from "./LoginPage.module.css";
+import GeneralFooter from "../../components/layout/GeneralFooter/GeneralFooter";
 
 function LoginPage() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -30,7 +29,7 @@ function LoginPage() {
       </div>
       <div className={classes.overlay} />
       <LoginForm windowWidth={windowWidth} />
-      <LoginFooter />
+      <GeneralFooter backgroundColor="rgb(0, 0, 0, 0.75)" />
     </div>
   );
 }

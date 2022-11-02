@@ -8,7 +8,7 @@ function Content() {
     <section className={`container ${classes.section}`}>
       <div className={`${classes.content}`}>
         <img src={image} alt="screens" />
-        <span>step 1 of 3</span>
+        {/* <span>step 1 of 3</span> */}
         <h2>Finish setting up your account</h2>
         <div className={classes.text}>
           <p>Netflix is personalized for you.</p>

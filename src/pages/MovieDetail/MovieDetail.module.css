@@ -1,14 +1,10 @@
-.main {
-  background-color: #222;
-  width: 100%;
-  min-height: 120vh;
-  display: flex;
-  flex-direction: column;
+.middle {
+  flex: 1;
+  height: 110vh;
 }
 .image {
-  min-height: 80vh;
-  flex: 1;
   background-size: cover;
+  min-height: 100%;
   background-position: center center;
   position: relative;
 }
@@ -27,12 +23,11 @@
 .content {
   color: white;
   position: relative;
-  top: 20vh;
+  top: 15vh;
   left: 5%;
   text-align: center;
   width: 90%;
   padding: 0;
-  z-index: 100;
 }
 .title {
   font-size: 2.5rem;
@@ -60,7 +55,6 @@
 }
 .btns {
   margin: 20px 0;
-
 }
 
 .btns button {
@@ -89,9 +83,11 @@
 }
 
 @media (min-width: 501px) {
+  .middle {
+    height: 100vh;
+  }
   .content {
     transform: translateX(0);
-    top: 20vh;
     left: 20px;
     text-align: start;
     max-width: 500px;
@@ -119,7 +115,11 @@
   }
 }
 @media (min-width: 992px) {
+  .middle {
+    height: 80vh;
+  }
   .content {
+    top: 20vh;
     max-width: 600px;
     font-weight: 500;
   }

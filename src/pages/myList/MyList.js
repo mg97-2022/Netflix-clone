@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import BigFooter from "../../components/layout/BigFooter/BigFooter";
 import MoviesNav from "../moviesPage/MoviesNav/MoviesNav";
 import { Link } from "react-router-dom";
 import { HiMinus } from "react-icons/hi";
 import { myListActions } from "../../store/myList";
-import { showDetailActions } from "../../store/showDetail";
 import useHttp from "../../hooks/use-http";
 import classes from "./MyList.module.css";
-import LoadingSpinner from "../../components/ui/Modal/LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "../../components/ui/LoadingSpinner/LoadingSpinner";
+import MovieControl from "../moviesPage/MovieControl/MovieControl";
 
 const baseUrl = "https://image.tmdb.org/t/p/original/";
 
 function MyList() {
-  // const myListMovies = useSelector((state) => state.myList.myList);
   const userIdToken = useSelector((state) => state.signin.idToken);
   const { error: requestError, sendRequest, isLoading } = useHttp();
   const myList = useSelector((state) => state.myList.myList);
@@ -37,10 +36,10 @@ function MyList() {
         },
         responseHandler
       );
-    }, 1000);
-    return ()=>{
-      clearTimeout(timer)
-    }
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [sendRequest, userIdToken, myList]);
 
   let content;
@@ -57,7 +56,6 @@ function MyList() {
     content = (
       <div className={`${classes.content} ${classes.error}`}>
         <h2>{requestError}</h2>
-        {/* <LoadingSpinner color="red" width="80px" height="80px" /> */}
       </div>
     );
   }
@@ -78,25 +76,19 @@ function MyList() {
           <ul className={classes.list}>
             {shows.map((item) => (
               <li key={item.id}>
-                <img src={`${baseUrl}${item.poster_path}`} alt="" />
-                <div className={classes.item_control}>
-                  <Link
-                    to={`/shows/${item.id}`}
-                    onClick={() => {
-                      dispatch(showDetailActions.getShow({ ...item }));
-                    }}
-                  >
-                    preview
-                  </Link>
-                  <button
-                    className="btn"
-                    onClick={() =>
-                      dispatch(myListActions.removeFromList(item.id))
-                    }
-                  >
-                    <HiMinus className={classes.icon} />
-                  </button>
-                </div>
+                <img
+                  loading="lazy"
+                  src={`${baseUrl}${item.poster_path}`}
+                  alt=""
+                />
+                <MovieControl
+                  className={classes.item_control}
+                  icon={<HiMinus />}
+                  movie={item}
+                  onClick={() =>
+                    dispatch(myListActions.removeFromList(item.id))
+                  }
+                />
               </li>
             ))}
           </ul>

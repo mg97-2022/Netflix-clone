@@ -40,10 +40,10 @@
   border: 1px solid #8c8c8c;
 }
 .input input:focus {
-  outline: 1px solid #0071eb;
+  border-color: #0071eb;
 }
 .input.error input {
-    outline: 1px solid #b92d2b;
+    border-color:#b92d2b;
 }
 .input input:focus::placeholder {
   transform: translateY(-15px);
@@ -58,9 +58,11 @@
 }
 .checkbox input {
   margin-right: 5px;
+  cursor: pointer;
 }
 .btn {
   margin-top: 30px;
+  cursor: pointer;
 }
 
 @media (min-width: 501px) {

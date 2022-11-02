@@ -51,6 +51,7 @@
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
 }
-.text p:last-child a {
+.text p:last-child span {
   color: #0071eb;
+  cursor: pointer;
 }

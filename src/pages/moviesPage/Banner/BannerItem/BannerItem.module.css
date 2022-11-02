@@ -1,12 +1,3 @@
-.section {
-  width: 100%;
-  height: 80vh;
-  position: relative;
-  display: flex;
-  margin: 0;
-  margin-bottom: 20px;
-  overflow: hidden;
-}
 .banner {
   background-size: cover;
   background-position: center center;
@@ -105,7 +96,7 @@
     max-width: 500px;
   }
   .title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   .overview {
     font-size: 1.25rem;
@@ -132,7 +123,7 @@
     font-weight: 500;
   }
   .title {
-    font-size: 3.25rem;
+    font-size: 3rem;
   }
 }
 .overlay {

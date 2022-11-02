@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import useHttp from "../../../hooks/use-http";
 import { signinActions } from "../../../store/signin";
 import useInputValidate from "../../../hooks/use-input";
-import LoadingSpinner from "../../../components/ui/Modal/LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "../../../components/ui/LoadingSpinner/LoadingSpinner";
 import classes from "./LoginForm.module.css";
 import BottomText from "./BottonText/BottomText";
 import InvalidInput from "../../../components/InvalidInput/InvalidInput";
@@ -46,7 +46,7 @@ function LoginForm({ windowWidth }) {
   //     resetPassword();
   //   }
   // }, [isLoggedIn, navigate, resetEmail, resetPassword]);
-
+  
   // another solution
   const responseHandler = (data) => {
     const userId = `${data.localId}${data.email.replace(".", "")}`;

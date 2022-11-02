@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useInputValidate from "../../../../hooks/use-input";
@@ -6,7 +6,7 @@ import classes from "./Content.module.css";
 import { signupActions } from "../../../../store/signup";
 import useHttp from "../../../../hooks/use-http";
 import InvalidInput from "../../../../components/InvalidInput/InvalidInput";
-import LoadingSpinner from "../../../../components/ui/Modal/LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "../../../../components/ui/LoadingSpinner/LoadingSpinner";
 import { signinActions } from "../../../../store/signin";
 
 function Content() {
@@ -78,19 +78,17 @@ function Content() {
       responseHandler
     );
 
-    // resetEmail();
-    // resetPassword();
   };
   return (
     <form className={`container ${classes.form}`} onSubmit={submitHandler}>
       <div className={classes.content}>
-        <span
+        {/* <span
           style={{
             marginBottom: requestError ? "20px" : "",
           }}
         >
           step 1 of 3
-        </span>
+        </span> */}
         {requestError && (
           <InvalidInput
             messageHandler={(message) => {}}

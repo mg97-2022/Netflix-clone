@@ -1,8 +1,6 @@
-.nav {
+.left {
   flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  position: relative;
 }
 .right {
   display: flex;
@@ -15,13 +13,12 @@
   margin-right: 10px;
   display: block;
   cursor: pointer;
-}
-.sign {
-  position: absolute;
-  right: 0;
+  z-index: 3000;
+  position: relative;
 }
 @media (max-width: 500px) {
-  .sign {
+  .sign,
+  .logout {
     font-size: 14px;
     padding: 5px 10px;
     width: fit-content;
@@ -34,9 +31,6 @@
   }
 }
 @media (min-width: 768px) {
-  .nav {
-    justify-content: space-between;
-  }
   .bars {
     display: none;
   }

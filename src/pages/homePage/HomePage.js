@@ -7,12 +7,10 @@ import Kids from './Kids/Kids'
 import Questions from './Questions/Questions'
 import HomeNav from './HomeNav/HomeNav'
 import BigFooter from '../../components/layout/BigFooter/BigFooter'
-import MoviesNav from '../moviesPage/MoviesNav/MoviesNav'
 
 function HomePage() {
   return (
     <Fragment>
-      {/* <MoviesNav /> */}
       <HomeNav />
       <Landing />
       <TvSection />

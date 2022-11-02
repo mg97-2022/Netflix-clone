@@ -53,6 +53,7 @@
     font-size: 1rem;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .landing form button:hover {
     background-color: red;

@@ -1,9 +1,9 @@
 import React from "react";
 import classes from "./GeneralFooter.module.css";
 
-function GeneralFooter({ backgroundColor }) {
+function GeneralFooter({ backgroundColor, borderTop }) {
   return (
-    <footer className={classes.footer} style={{ backgroundColor }}>
+    <footer className={classes.footer} style={{ backgroundColor, borderTop }}>
       <div className={` ${classes.content}`}>
         <a href="/">questions? contact us.</a>
         <ul className={classes.list}>

@@ -99,6 +99,7 @@ body {
   border-radius: 5px;
   height: 50px;
   text-transform: capitalize;
+  cursor: pointer;
 }
 
 .overlay {
@@ -109,25 +110,10 @@ body {
   height: 100%;
 }
 
+
 /* end global rules */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-.loading_page {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-}
-.loading_page h2 {
-  color: white;
-  font-size: 2.5rem;
-  text-transform: capitalize;
-  text-align: center;
-  padding-bottom: 20px;
 }

@@ -1,12 +1,13 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./NavList.module.css";
 
 function NavList({ showNav }) {
-  // const navigate = useNavigate()
 
   return (
-    <ul className={`${classes.list} ${showNav && classes.show_nav}`}>
+    <ul
+      className={`${classes.list} ${showNav && classes.show_nav}`}
+    >
       <li>
         <NavLink
           end
@@ -30,4 +31,3 @@ function NavList({ showNav }) {
 }
 
 export default NavList;
-

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { MdArrowForwardIos } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,6 @@ import { signupActions } from "../../../store/signup";
 import classes from "./Form.module.css";
 
 function Form(props) {
-  // const [emailValue, setEmailValue] = useState('')
   const emailValue = useRef()
   const dispatch = useDispatch()
 
