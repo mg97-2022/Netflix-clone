@@ -18,7 +18,7 @@ function MovieControl({ icon, movie, onClick, className }) {
       >
         <HiEye />
       </Link>
-      <button className="btn" onClick={onClick.bind(null, { ...movie })}>
+      <button className="btn" onClick={onClick}>
         {icon}
       </button>
     </div>

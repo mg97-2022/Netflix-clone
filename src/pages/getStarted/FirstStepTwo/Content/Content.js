@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useInputValidate from "../../../../hooks/use-input";
@@ -14,6 +14,7 @@ function Content() {
   const dispatch = useDispatch();
   const emailValueFromHomePage = useSelector((state) => state.signup.email);
   const { error: requestError, sendRequest, isLoading } = useHttp();
+  const userIdToken = useSelector((state) => state.signin.idToken);
 
   const {
     validInput: validEmail,
@@ -43,41 +44,43 @@ function Content() {
     emailChangeHandler(e.target.value);
   };
 
-  const responseHandler = (data) => {
-    const userId = `${data.localId}${data.email.replace(".", "")}`;
-    dispatch(signinActions.loggedIn(userId));
-    setTimeout(() => {
-      dispatch(signupActions.modalOpen());
-    }, 1000);
-    resetEmail();
-    resetPassword();
-    navigate("/shows", { replace: true });
-  };
+  useEffect(() => {
+    if (userIdToken !== "") {
+      setTimeout(() => {
+        dispatch(signupActions.modalOpen());
+      }, 1000);
+      navigate("/shows", { replace: true });
+    }
+  }, [dispatch, navigate, userIdToken]);
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-
     if (!validEmail || !validPassword) {
       return;
     }
 
-    sendRequest(
-      {
-        url: "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyARZXLEoUEkZwSKFncbv7oYPnYgnqF9lo8",
-
-        method: "POST",
-        body: {
-          email: emailValue,
-          password: passwordValue,
-          returnSecureToken: true,
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const data = await sendRequest({
+      url: `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyARZXLEoUEkZwSKFncbv7oYPnYgnqF9lo8`,
+      method: "POST",
+      body: {
+        email: emailValue,
+        password: passwordValue,
+        returnSecureToken: true,
       },
-      responseHandler
-    );
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
+    if (requestError) {
+      return;
+    }
+    
+    const userId = `${data.localId}${data.email.replace(".", "")}`;
+    dispatch(signinActions.loggedIn(userId));
+
+    resetEmail();
+    resetPassword();
   };
   return (
     <form className={`container ${classes.form}`} onSubmit={submitHandler}>

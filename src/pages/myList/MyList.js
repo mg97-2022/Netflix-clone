@@ -1,46 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import BigFooter from "../../components/layout/BigFooter/BigFooter";
 import MoviesNav from "../moviesPage/MoviesNav/MoviesNav";
 import { Link } from "react-router-dom";
 import { HiMinus } from "react-icons/hi";
-import { myListActions } from "../../store/myList";
-import useHttp from "../../hooks/use-http";
 import classes from "./MyList.module.css";
 import LoadingSpinner from "../../components/ui/LoadingSpinner/LoadingSpinner";
 import MovieControl from "../moviesPage/MovieControl/MovieControl";
+import useUpdateMovies from "../../hooks/use-updateMovie";
 
 const baseUrl = "https://image.tmdb.org/t/p/original/";
 
 function MyList() {
-  const userIdToken = useSelector((state) => state.signin.idToken);
-  const { error: requestError, sendRequest, isLoading } = useHttp();
   const myList = useSelector((state) => state.myList.myList);
-  const [shows, setShows] = useState([]);
-  const dispatch = useDispatch();
+  const { updateMovies, error:requestError, isLoading } = useUpdateMovies()
 
-  const responseHandler = (data) => {
-    const showsList = [];
-    for (const key in data) {
-      showsList.push(data[key]);
-    }
-    setShows(showsList || []);
+  const removeShowFromListHandler = (id) => {
+    const newList = myList.filter(item => item.id !== id)
+    updateMovies(newList, 'PUT')
   };
-
-  useEffect(() => {
-    const modifiedUserToken = userIdToken;
-    const timer = setTimeout(() => {
-      sendRequest(
-        {
-          url: `https://netflix-mg97-default-rtdb.firebaseio.com/${modifiedUserToken}.json`,
-        },
-        responseHandler
-      );
-    }, 500);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [sendRequest, userIdToken, myList]);
 
   let content;
   if (isLoading) {
@@ -63,7 +41,7 @@ function MyList() {
     content = (
       <div className={classes.content}>
         <h2>my list</h2>
-        {shows.length === 0 && (
+        {myList.length === 0 && (
           <div className={classes.no_shows}>
             <h4>no shows!!</h4>
             <p>let's add some</p>
@@ -72,10 +50,10 @@ function MyList() {
             </Link>
           </div>
         )}
-        {shows.length !== 0 && (
+        {myList.length !== 0 && (
           <ul className={classes.list}>
-            {shows.map((item) => (
-              <li key={item.id}>
+            {myList.map((item, index) => (
+              <li key={index}>
                 <img
                   loading="lazy"
                   src={`${baseUrl}${item.poster_path}`}
@@ -85,9 +63,7 @@ function MyList() {
                   className={classes.item_control}
                   icon={<HiMinus />}
                   movie={item}
-                  onClick={() =>
-                    dispatch(myListActions.removeFromList(item.id))
-                  }
+                  onClick={removeShowFromListHandler.bind(null, item.id)}
                 />
               </li>
             ))}

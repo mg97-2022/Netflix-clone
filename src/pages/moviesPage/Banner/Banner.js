@@ -7,22 +7,17 @@ import BannerItem from "./BannerItem/BannerItem";
 const showsBaseUrl = "https://api.themoviedb.org/3";
 
 function Banner({ onLoadingHandler }) {
-  const [movies, setMovies] = useState([]);
+  const [shows, setShows] = useState([]);
   const { error: requestError, sendRequest, isLoading } = useHttp();
 
-  // fetching data part
-  const responseHandler = (data) => {
-    const bannerShows = data.results;
-    setMovies(bannerShows);
-  };
-
   useEffect(() => {
-    sendRequest(
-      {
+    const fetchShows = async () => {
+      const data = await sendRequest({
         url: `${showsBaseUrl}${requests.actionMovies}`,
-      },
-      responseHandler
-    );
+      });
+      setShows(data.results);
+    };
+    fetchShows();
   }, [sendRequest]);
 
   // slider part
@@ -30,7 +25,7 @@ function Banner({ onLoadingHandler }) {
   useEffect(() => {
     const timer = setInterval(() => {
       let newIndex = index + 1;
-      if (index >= movies.length - 1) {
+      if (index >= shows.length - 1) {
         setIndex(0);
         return;
       } else {
@@ -40,7 +35,7 @@ function Banner({ onLoadingHandler }) {
     return () => {
       clearInterval(timer);
     };
-  }, [index, movies]);
+  }, [index, shows]);
 
   // loading page part
   useEffect(() => {
@@ -49,14 +44,14 @@ function Banner({ onLoadingHandler }) {
 
   return (
     <section className={classes.section}>
-      {movies.map((movie, movieIndex) => {
-        const { release_date, id } = movie;
+      {shows.map((show, movieIndex) => {
+        const { release_date, id } = show;
         const date = release_date.slice(0, 4);
 
         return (
           <BannerItem
             key={id}
-            movie={{...movie, date}}
+            movie={{ ...show, date }}
             opacity={movieIndex === index}
           />
         );

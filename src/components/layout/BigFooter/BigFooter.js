@@ -10,60 +10,60 @@ function BigFooter({ borderTop }) {
       }}
     >
       <div className={classes.content}>
-        <a href="/">questions? contact us</a>
+        <span>questions? contact us</span>
         <ul className={classes.links}>
           <li>
-            <a href="/">FAQ</a>
+            <span>FAQ</span>
           </li>
           <li>
-            <a href="/">Help Center</a>
+            <span>Help Center</span>
           </li>
           <li>
-            <a href="/">Account</a>
-          </li>
-
-          <li>
-            <a href="/">Media Center</a>
+            <span>Account</span>
           </li>
 
           <li>
-            <a href="/">Investor Relations</a>
-          </li>
-          <li>
-            <a href="/">Jobs</a>
-          </li>
-          <li>
-            <a href="/">Ways To Watch</a>
+            <span>Media Center</span>
           </li>
 
           <li>
-            <a href="/">Terms of Use</a>
+            <span>Investor Relations</span>
+          </li>
+          <li>
+            <span>Jobs</span>
+          </li>
+          <li>
+            <span>Ways To Watch</span>
           </li>
 
           <li>
-            <a href="/">Privacy</a>
+            <span>Terms of Use</span>
           </li>
 
           <li>
-            <a href="/">Cookie Preferences</a>
-          </li>
-          <li>
-            <a href="/">Corporate Information</a>
-          </li>
-          <li>
-            <a href="/">Contact Us</a>
+            <span>Privacy</span>
           </li>
 
           <li>
-            <a href="/">Speed Test</a>
+            <span>Cookie Preferences</span>
+          </li>
+          <li>
+            <span>Corporate Information</span>
+          </li>
+          <li>
+            <span>Contact Us</span>
           </li>
 
           <li>
-            <a href="/">Legal Notices</a>
+            <span>Speed Test</span>
           </li>
 
           <li>
-            <a href="/">Only on Netflix</a>
+            <span>Legal Notices</span>
+          </li>
+
+          <li>
+            <span>Only on Netflix</span>
           </li>
         </ul>
         <p>Netflix Egypt</p>

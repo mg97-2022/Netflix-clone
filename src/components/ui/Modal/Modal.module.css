@@ -24,9 +24,6 @@
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
-  /*animation: slide-down 300ms ease-out forwards;
-  -webkit-animation: slide-down 300ms ease-out forwards;
-  */
 }
 .modal_open {
   animation: openModal 300ms ease-out forwards;

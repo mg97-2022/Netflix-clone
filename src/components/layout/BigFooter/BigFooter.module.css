@@ -8,15 +8,17 @@
   width: 90%;
   margin: 0 auto;
 }
-.content > a {
+.content > span {
   color: #737373;
   text-transform: capitalize;
   font-weight: 500;
+  cursor: pointer;
 }
-.content a {
+.content span {
   position: relative;
+  cursor: pointer;
 }
-.content a:after {
+.content span:after {
   content: "";
   width: 100%;
   height: 1px;
@@ -26,7 +28,7 @@
   bottom: 2px;
   display: none;
 }
-.content a:hover::after {
+.content span:hover::after {
   display: block;
 }
 .links {
@@ -40,7 +42,7 @@
   min-width: 49%;
   margin-bottom: 10px;
 }
-.links li a {
+.links li span {
   width: auto;
   color: #737373;
   font-size: 14px;

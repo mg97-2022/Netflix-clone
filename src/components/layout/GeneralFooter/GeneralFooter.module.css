@@ -1,15 +1,17 @@
 .footer {
   padding: 30px 0;
+  z-index: 1000;
 }
 .content {
   margin-left: 20px;
 }
-.content > a {
+.content > span {
   display: block;
   color: #737373;
   text-transform: capitalize;
   margin-bottom: 15px;
   font-weight: 600;
+  cursor: pointer;
 }
 .list {
   display: flex;
@@ -19,11 +21,12 @@
   width: 50%;
   margin-bottom: 10px;
 }
-.list li a {
+.list li span {
   color: #737373;
   font-size: 0.8rem;
+  cursor: pointer;
 }
-.list li:not(:first-child) a {
+.list li:not(:first-child) span {
   text-transform: capitalize;
 }
 @media (min-width: 501px) {

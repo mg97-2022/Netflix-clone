@@ -4,6 +4,7 @@
   margin: 0 auto;
   padding: 100px 20px 0;
   z-index: 100;
+  background-color: transparent;
 }
 .form h2 {
   text-transform: capitalize;
@@ -124,6 +125,7 @@
     padding: 40px 40px;
     border-radius: 3px;
     margin: 100px auto 50px;
+    background-color: rgba(0,0,0,.75);
   }
   .inputs button {
     margin-top: 20px;

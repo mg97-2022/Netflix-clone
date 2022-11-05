@@ -5,6 +5,7 @@
     background-position: center center;
     display: grid;
     grid-template-rows: 1fr auto;
+    background-color: black;
 }
 .logo {
     position: absolute;
@@ -27,4 +28,9 @@
 }
 .main img {
     height: 100%;
+}
+@media (min-width: 768px) {
+    .main {
+        background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/afc06103-4d6a-4236-b496-34b671a7e9ba/bc0788fe-a1ce-49fb-bc80-525f4879b02b/EG-en-20221003-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+    }
 }
