@@ -11,13 +11,12 @@ function Banner({ onLoadingHandler }) {
   const { error: requestError, sendRequest, isLoading } = useHttp();
 
   useEffect(() => {
-    const fetchShows = async () => {
+    (async () => {
       const data = await sendRequest({
         url: `${showsBaseUrl}${requests.actionMovies}`,
       });
       setShows(data.results);
-    };
-    fetchShows();
+    })();
   }, [sendRequest]);
 
   // slider part

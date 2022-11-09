@@ -8,6 +8,7 @@ import { HiEye } from "react-icons/hi";
 function MovieControl({ icon, movie, onClick, className }) {
   const { id } = movie;
   const dispatch = useDispatch();
+
   return (
     <div className={`${classes.content} ${className}`}>
       <Link

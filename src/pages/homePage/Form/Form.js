@@ -9,8 +9,8 @@ import classes from "./Form.module.css";
 function Form(props) {
   const emailValue = useRef()
   const dispatch = useDispatch()
-
   const navigate = useNavigate();
+  
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(signupActions.signupMail(emailValue.current.value))

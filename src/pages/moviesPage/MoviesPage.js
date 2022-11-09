@@ -13,7 +13,7 @@ function MoviesPage() {
   const [loading, setLoading] = useState(false);
   const [reqError, setReqError] = useState(false);
 
-  const LoadingHandler = useCallback((isLoading, requestError) => {
+  const loadingHandler = useCallback((isLoading, requestError) => {
     setReqError(requestError);
     setLoading(isLoading);
   }, []);
@@ -39,7 +39,7 @@ function MoviesPage() {
     <main className={classes.main}>
       <WelcomeModal />
       <MoviesNav />
-      <Banner onLoadingHandler={LoadingHandler} />
+      <Banner onLoadingHandler={loadingHandler} />
       <MovieList title="trending now" url={requests.NetflixOriginals} />
       <MovieList title="top rated" url={requests.topRatedMovies} />
       {/* <MovieList title='upcoming movies' url={requests.upcomingMovies} /> */}

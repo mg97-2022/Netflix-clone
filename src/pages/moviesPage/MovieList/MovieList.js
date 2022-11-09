@@ -9,20 +9,14 @@ function MovieList({ title, url }) {
   const [shows, setShows] = useState([]);
   const { sendRequest } = useHttp();
 
-  // const responseHandler = (data) => {
-  //   const showsList = data.results;
-  //   setShows(showsList);
-  // };
-
   //fetch movies data
   useEffect(() => {
-    const fetchShows = async () => {
+    (async () => {
       const data = await sendRequest({
         url: `${showsBaseUrl}${url}`,
       });
       setShows(data.results);
-    };
-    fetchShows();
+    })();
   }, [sendRequest, url]);
 
   return (

@@ -20,7 +20,7 @@ function BannerItem({ movie, opacity }) {
   const { updateMovies } = useUpdateMovies();
 
   const addMovieToListHandler = async (movie) => {
-    const itemExist = myList.filter(item=>item.id === movie.id) 
+    const itemExist = myList.filter(item=>item.id === movie.id)
     if (itemExist.length > 0) {
       return
     }
