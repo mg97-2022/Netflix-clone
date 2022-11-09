@@ -60,7 +60,7 @@ function Content() {
     }
 
     const data = await sendRequest({
-      url: `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyARZXLEoUEkZwSKFncbv7oYPnYgnqF9lo8`,
+      url: `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_KEY}`,
       method: "POST",
       body: {
         email: emailValue,
@@ -75,7 +75,7 @@ function Content() {
     if (requestError) {
       return;
     }
-    
+
     const userId = `${data.localId}${data.email.replace(".", "")}`;
     dispatch(signinActions.loggedIn(userId));
 

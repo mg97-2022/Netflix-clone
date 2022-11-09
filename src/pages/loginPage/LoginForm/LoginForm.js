@@ -45,7 +45,7 @@ function LoginForm() {
     }
 
     const data = await sendRequest({
-      url: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyARZXLEoUEkZwSKFncbv7oYPnYgnqF9lo8",
+      url: `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_KEY}`,
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,5 +1,5 @@
-import React, { useDispatch } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import BigFooter from "../../components/layout/BigFooter/BigFooter";
 import MoviesNav from "../moviesPage/MoviesNav/MoviesNav";
 import { Link } from "react-router-dom";
@@ -19,9 +19,8 @@ function MyList() {
   const myList = useSelector((state) => state.myList.myList);
   const { updateMovies, error: requestError, isLoading } = useUpdateMovies();
   const userIdToken = useSelector((state) => state.signin.idToken);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { sendRequest } = useHttp();
-  const [myFetchedList, setMyFetchedList] = useState([]);
 
   const removeShowFromListHandler = (id) => {
     const newList = myList.filter((item) => item.id !== id);
@@ -31,17 +30,16 @@ function MyList() {
   useEffect(() => {
     const fetchList = async () => {
       const data = await sendRequest({
-        url: `https://netflix-mg97-default-rtdb.firebaseio.com/${userIdToken}.json`,
+        url: `https://netflix-clone-mg97-default-rtdb.firebaseio.com/${userIdToken}.json`,
       });
       const fetchedShows = [];
       for (const key in data) {
         fetchedShows.push(data[key]);
       }
-      // dispatch(myListActions.addToList(fetchedShows));
-      setMyFetchedList(fetchedShows);
+      dispatch(myListActions.addToList(fetchedShows));
     };
     fetchList();
-  }, [sendRequest, userIdToken]);
+  }, [sendRequest, userIdToken, dispatch]);
 
   let content;
   if (isLoading) {
@@ -64,7 +62,7 @@ function MyList() {
     content = (
       <div className={classes.content}>
         <h2>my list</h2>
-        {myFetchedList.length === 0 && (
+        {myList.length === 0 && (
           <div className={classes.no_shows}>
             <h4>no shows!!</h4>
             <p>let's add some</p>
@@ -73,9 +71,9 @@ function MyList() {
             </Link>
           </div>
         )}
-        {myFetchedList.length !== 0 && (
+        {myList.length !== 0 && (
           <ul className={classes.list}>
-            {myFetchedList.map((item, index) => (
+            {myList.map((item, index) => (
               <li key={index}>
                 <img
                   loading="lazy"

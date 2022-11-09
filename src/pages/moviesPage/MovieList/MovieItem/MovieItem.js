@@ -13,14 +13,14 @@ function MovieItem({ movie }) {
   const { poster_path, title, id } = movie;
   const [movieInList, setMovieInList] = useState(false);
   const myList = useSelector((state) => state.myList.myList);
-  const {updateMovies} = useUpdateMovies()
+  const { updateMovies } = useUpdateMovies();
 
   const addMovieToListHandler = async (movie) => {
-    const itemExist = myList.filter(item=>item.id === movie.id) 
+    const itemExist = myList.filter((item) => item.id === movie.id);
     if (itemExist.length > 0) {
-      return
+      return;
     }
-    updateMovies(movie, 'POST')
+    updateMovies(movie, "POST");
   };
 
   useEffect(() => {
