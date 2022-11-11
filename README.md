@@ -1,6 +1,7 @@
 Netflix clone
 
-Movies website with React.JS, Redux, CSS
+Movies website with React.JS, Redux, CSS :- 
+
 1- Used redux for whole website state management
 
 2- User sign up and user sign in with authentication using firebase as backend
