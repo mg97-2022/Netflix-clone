@@ -5,13 +5,12 @@ import { MdPlayArrow } from "react-icons/md";
 import { HiPlus } from "react-icons/hi";
 import { AiFillHeart } from "react-icons/ai";
 import classes from "./MovieDetail.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { myListActions } from "../../store/myList";
+import { useSelector } from "react-redux";
+import useUpdateMovies from "../../hooks/use-updateMovie";
 
 const baseUrl = "https://image.tmdb.org/t/p/original/";
 
 function MovieDetail() {
-  const dispatch = useDispatch();
   const showDetails = useSelector((state) => state.showDetail.showDetail);
   const {
     id,
@@ -26,7 +25,17 @@ function MovieDetail() {
 
   const [movieInList, setMovieInList] = useState(false);
 
+  const { updateMovies } = useUpdateMovies();
   const myList = useSelector((state) => state.myList.myList);
+
+  const addMovieToListHandler = async (movie) => {
+    const itemExist = myList.filter(item=>item.id === movie.id)
+    if (itemExist.length > 0) {
+      return
+    }
+    updateMovies(movie, 'POST');
+  };
+
 
   useEffect(() => {
     const itemExist = myList.find((item) => item.id === id);
@@ -61,9 +70,7 @@ function MovieDetail() {
               </button>
               <button
                 className={classes.banner_btn}
-                onClick={() => {
-                  dispatch(myListActions.addToList(showDetails));
-                }}
+                onClick={addMovieToListHandler.bind(null,showDetails)}
               >
                 {movieInList ? (
                   <AiFillHeart className={classes.icon} />

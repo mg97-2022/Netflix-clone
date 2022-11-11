@@ -9,7 +9,7 @@ const useUpdateMovies = () => {
 
   const updateMovies = async (movie, method) => {
     await sendRequest({
-      url: `https://netflix-clone-mg97-default-rtdb.firebaseio.com/${userIdToken}.json`,
+      url: `${process.env.REACT_APP_FIREBASE_PROJECT}${userIdToken}.json`,
       method: method,
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +18,7 @@ const useUpdateMovies = () => {
     });
 
     const data = await sendRequest({
-      url: `https://netflix-clone-mg97-default-rtdb.firebaseio.com/${userIdToken}.json`,
+      url: `${process.env.REACT_APP_FIREBASE_PROJECT}${userIdToken}.json`,
     });
 
     const fetchedShows = [];

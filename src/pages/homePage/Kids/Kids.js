@@ -12,7 +12,7 @@ function Kids() {
           />
         </div>
         <div className={`${classes.text}  ${classes.up}`}>
-          <h2>Watch everywhere.</h2>
+          <h2>Create profiles for kids.</h2>
           <p>
             Stream unlimited movies and TV shows on your phone, tablet, laptop,
             and TV without paying more.
